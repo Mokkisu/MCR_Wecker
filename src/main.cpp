@@ -12,6 +12,9 @@ wecker
 
 #define LED_Pixel 12
 #define LED_Pin 25
+#define SCL 12
+#define SDA 13
+
 #define LED_Type NEO_GRB + NEO_KHZ800
 
 Adafruit_NeoPixel ring(LED_Pixel, LED_Pin, LED_Type);
@@ -23,6 +26,7 @@ void setup() {
   ring.begin();
   ring.setBrightness(75);
   ring.show();
+  time.rtc_setup();
 }
 
 void loop() {
