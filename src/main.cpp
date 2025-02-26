@@ -2,6 +2,7 @@
 #include <state-machine.h>
 #include <rtc.h>
 #include <leds.h>
+#include <rotary.h>
 
 /**
 wecker
@@ -14,15 +15,17 @@ wecker
 #define LED_Pin 25
 #define LED_Type NEO_GRB + NEO_KHZ800
 
-
 int incomingByte = 0; // Für eingehende serielle Daten
 
-void setup() {
+void setup()
+{
   Serial.begin(115200);
   ring_setup();
+  rotary_setup();
 }
 
-void loop() {
+void loop()
+{
 
   if (IDLE == state)
   {
@@ -31,9 +34,9 @@ void loop() {
     Serial.println(time.minutes);
     update_time(time);
   }
-  
 
-  if (Serial.available() > 0) {
+  if (Serial.available() > 0)
+  {
     // Lies das eingehende Byte:
     incomingByte = Serial.read();
 
@@ -44,12 +47,12 @@ void loop() {
       Serial.print("Aktueller State: ");
       Serial.println(state);
       break;
-      
+
     case '1':
       /* code */
       transistion(ALARM_OFF);
       break;
-      
+
     case '2':
       /* code */
       transistion(ALARM_ON);
