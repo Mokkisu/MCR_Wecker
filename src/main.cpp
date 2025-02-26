@@ -13,6 +13,9 @@ wecker
 
 #define LED_Pixel 12
 #define LED_Pin 25
+#define SCL 12
+#define SDA 13
+
 #define LED_Type NEO_GRB + NEO_KHZ800
 
 int incomingByte = 0; // Für eingehende serielle Daten
@@ -20,6 +23,7 @@ int incomingByte = 0; // Für eingehende serielle Daten
 void setup()
 {
   Serial.begin(115200);
+  rtc_setup();
   ring_setup();
   rotary_setup();
 }
