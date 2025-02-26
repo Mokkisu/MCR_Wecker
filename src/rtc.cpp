@@ -5,7 +5,7 @@
 // Initialize the RTC
 RTC_DS3231 rtc;
 
-void setup() { // Initialize the RTC
+void rtc_setup() { // Initialize the RTC
     if (!rtc.begin()) {
         while (1); // Couldn't find RTC, halt the program
     }
