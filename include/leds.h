@@ -9,6 +9,7 @@
 
 void ring_setup();
 void update_time(Time time);
-void set_alarm_time_led(int rotaryinc);
+void update_alarm_time_led();
+void alarm_lighting();
 
 #endif

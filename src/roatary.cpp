@@ -9,6 +9,7 @@ const int PIN_BTN = 32;
 
 // Initialization of required variables
 bool initialisation_complete = false;
+int configured_time = 0;
 
 void transiton_btn_pressed()
 {
@@ -23,7 +24,7 @@ void transiton_btn_pressed()
 
         break;
     case SET_ALARM:
-        transition(SET_ALARM);
+        transition(CONFIG_FINISH);
 
         break;
     }
@@ -80,11 +81,13 @@ void readEncoderSave()
         // make sure it's gone through at least 3 of those (and assume if one is missing it's because I didn't read fast enough)
         if (clockState == 0b1011 || clockState == 0b1101 || clockState == 0b1110 || clockState == 0b1111)
         {
-            set_alarm_time_led(1);
+            configured_time++;
+            update_alarm_time_led();
         }
         if (counterClockState == 0b1011 || counterClockState == 0b1101 || counterClockState == 0b1110 || counterClockState == 0b1111)
         {
-            set_alarm_time_led(-1);
+            configured_time--;
+            update_alarm_time_led();
         }
 
         clockState = 0;

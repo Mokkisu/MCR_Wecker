@@ -35,6 +35,11 @@ void loop()
     update_time(time);
   }
 
+  if (RING == state)
+  {
+    alarm_lighting();
+  }
+
   if (Serial.available() > 0)
   {
     // Lies das eingehende Byte:
@@ -50,27 +55,27 @@ void loop()
 
     case '1':
       /* code */
-      transistion(ALARM_OFF);
+      transition(ALARM_OFF);
       break;
 
     case '2':
-      /* code */
-      transistion(ALARM_ON);
+      transition(ALARM_ON);
+      alarm_lighting();
       break;
 
     case '3':
       /* code */
-      transistion(CONFIG_TIME);
+      transition(CONFIG_TIME);
       break;
 
     case '4':
-      transistion(CONFIG_ALARM);
+      transition(CONFIG_ALARM);
 
       break;
 
     case '5':
       /* code */
-      transistion(CONFIG_FINISH);
+      transition(CONFIG_FINISH);
       break;
 
     default:

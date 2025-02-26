@@ -3,4 +3,6 @@
 
 void rotary_setup();
 
+extern int configured_time;
+
 #endif
