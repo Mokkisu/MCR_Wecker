@@ -26,7 +26,7 @@ void setup() {
   ring.begin();
   ring.setBrightness(75);
   ring.show();
-  time.rtc_setup();
+  rtc_setup();
 }
 
 void loop() {
