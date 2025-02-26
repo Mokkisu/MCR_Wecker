@@ -18,6 +18,6 @@ typedef enum{
 
 extern State_t state;
 
-void transistion(Event_t event);
+void transition(Event_t event);
 
 #endif
