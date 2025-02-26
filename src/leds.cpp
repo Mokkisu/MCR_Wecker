@@ -14,8 +14,8 @@ void ring_setup(){
 void update_time(Time time)
 {
     ring.setPixelColor(time.hours%12, 255,0,0);
-    ring.setPixelColor((time.minutes/60)%12,0,0,255);
-    ring.setPixelColor((time.seconds/60)%12,0,255,0);
+    ring.setPixelColor((time.minutes)%12,0,0,255);
+    ring.setPixelColor((time.seconds)%12,0,255,0);
     ring.show();
 }
 

@@ -107,7 +107,7 @@ void readButton()
     }
 }
 
-void setup()
+void rotary_setup()
 {
     pinMode(PIN_CLK, INPUT_PULLUP);
     pinMode(PIN_DT, INPUT_PULLUP);
